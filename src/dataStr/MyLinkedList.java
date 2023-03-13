@@ -109,7 +109,42 @@ public class MyLinkedList<T> {
 			}
 			System.out.println();
 		}
+		
+		public void remove(int position) {
+			//TODO verify if list is empty
+			//TODO verify if position is wrong
+			
+			//TODO the 4th case - if we want to remove the last element
+			//remove from the beginning
+			if(position == 0) {
+				first = first.getNext();
+				first.setPrevious(null); 	//tatad sheit mes elementu noradam uz first, un previous noradam uz nulli, sanak to, ka starp sho elementu nav
+				elementCounter--;
+			}
+			//remove from the end. tatad sheit last noradam uz previous un next uz nulli
+			else if(position == elementCounter - 1){
+				last = last.getPrevious();
+				last.setNext(null);
+				elementCounter--;
+			}
+			
+			//remove from the middle
+			else {
+				MyNode tempNode = first;
+				
+				for(int i = 0; i < position; i++) {
+					tempNode = tempNode.getNext();
+				}
+				
+				MyNode tempNodePrevious = tempNode.getPrevious();
+				MyNode tempNodeNext = tempNode.getNext();
+				tempNodePrevious.setNext(tempNodeNext);
+				tempNodeNext.setPrevious(tempNodePrevious);
+				elementCounter--;
+			}
+		}
 	}
 
+	
 	//ЗАМЕТКА! for each цикл подходит для того, чтоб через ВСЕ элементы пройти
 	//ЗАМЕТКА! pritln когда пишем, автоматически переносится на новую строку, чтобы такого не было, пишем print(System.out.print)
