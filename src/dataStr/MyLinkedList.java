@@ -69,13 +69,14 @@ public class MyLinkedList<T> {
 				elementCounter++;
 						
 			}
-			
+		
 			//Здесь же мы в самом начале (перед first) добавляем новый блок к уже существующим блокам(к змейке этой)
 			
 			//add at the end
 			else if(position == elementCounter) {
 				add(newElement);
 			}
+		
 			//Здесь по такому же принципу, как было в начале кода, поэтому просто копируем функцию(делаем это перед last)
 				
 			//add in the middle
@@ -95,10 +96,19 @@ public class MyLinkedList<T> {
 				newNode.setPrevious(tempNode2);
 				
 				elementCounter++;
-				
-				
+			
 			}
 		}
+	}	
+		public void print() {
+			//TODO verify if list is empty
+			MyNode tempNode = first;
+			while(tempNode != null) {
+				System.out.print(tempNode.getElement() + " ");
+				tempNode = tempNode.getNext();
+			}
+			System.out.println();
+		}
 	}
-}
+
 	//ЗАМЕТКА! for each цикл подходит для того, чтоб через ВСЕ элементы пройти
