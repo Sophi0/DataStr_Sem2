@@ -9,6 +9,9 @@ public class MyNode<T> {
 	 * null <- next
 	 */
 	
+	/*
+	 * katram mezglam veidojam jauno klasi!
+	 */
 
 	private T  element;
 	private MyNode next = null;		//uzreiz pec noklusejuma bus null
@@ -55,7 +58,7 @@ public class MyNode<T> {
 		setElement(inputElement);
 	}
 	
-	public String toString() {
+	public String toString() {	//izvadam elementu(35)
 		return "" + element;
 	}
 }
